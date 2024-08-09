@@ -1,26 +1,39 @@
-package com.arhaminstitute.DatabaseDemo.Topic;
+package com.arhaminstitute.DatabaseDemo.Course;
 
 
+import com.arhaminstitute.DatabaseDemo.Topic.TopicModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class TopicModel {
+public class Course {
 
     @Id
     private  String id;
     private String name;
     private String description;
 
+    @ManyToOne
+    private TopicModel topicModel;
 
-
-    public TopicModel() {
+    public TopicModel getTopicModel() {
+        return topicModel;
     }
 
-    public TopicModel(String id, String name, String description) {
+    public void setTopicModel(TopicModel topicModel) {
+        this.topicModel = topicModel;
+    }
+
+    public Course() {
+    }
+
+    public Course(String id, String name, String description,String topicId) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.topicModel = new TopicModel(topicId,"","");
+
     }
 
     public String getId() {

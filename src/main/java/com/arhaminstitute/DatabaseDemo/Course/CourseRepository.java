@@ -1,13 +1,13 @@
-package com.arhaminstitute.DatabaseDemo.Topic;
+package com.arhaminstitute.DatabaseDemo.Course;
 
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface TopicRepository extends CrudRepository<TopicModel, String>
+public interface CourseRepository extends CrudRepository<Course, String>
 {
-       List<TopicModel> findByName(String name);
-
+       List<Course> findByName(String name);
+       List<Course> findByTopicModelId(String topicid);
 
 
 
